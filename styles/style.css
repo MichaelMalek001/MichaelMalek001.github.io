@@ -21,6 +21,7 @@ h2{
     border-radius: 50px;
     margin-left: 10%;
     margin-right: 10%;
+    background-image: linear-gradient(to right, rgba(44,53,57,0), rgba(44,53,57,1));
 }
 
 img {
