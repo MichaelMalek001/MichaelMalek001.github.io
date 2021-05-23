@@ -1,1 +1,93 @@
-"Hello World" 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SEG3125 Lab 1</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <h1>Survey on the Euro 2020 Website</h1>
+    <form>
+        <h2>Click <a href="https://www.uefa.com/uefaeuro-2020/" target="_blank">here</a> to reach the website to be evaluated.</h2>
+        <br>
+        <a href="https://www.uefa.com/uefaeuro-2020/" target="_blank">
+            <img src="images/EurosWebImg.PNG" alt="Euros Website Home Page" width="900" height="500">
+        </a>
+        <br>
+        <br>
+        <!-- Question 1 -->
+        <div class="question">
+            <h3>1. Personal Information</h3>
+            <label for="firstName">First Name:</label><br>
+            <input type="text" id="firstName"><br><br>
+            <label for="lastName">Last Name:</label><br>
+            <input type="text" id="lastName"><br><br>
+            <label for="age">Age:</label><br>
+            <input type="text" id="age">
+        </div>
+        <br>
+        <br>
+        <!-- Question 2 -->
+        <div class="question">
+            <h3>2. Would you place this page in the hall of fame or shame?</h3>
+            <input type="radio" name="fameOrShame" value="fame">
+            <label for="fame">Fame</label><br>
+            <input type="radio" name="fameOrShame" value="shame">
+            <label for="shame">Shame</label><br>
+        </div>
+        <br>
+        <br>
+        <!-- Question 3 -->
+        <div class="question">
+            <h3>3. Among the following evalution criterias of user interfaces, which one(s) prompted you to make your decision in the previous question?</h3>
+            <input type="checkbox" id="chkBox" name="ProperFunc" value="ProperFunc">
+            <label for="ProperFunc">Proper Functionality</label><br>
+            <input type="checkbox" id="chkBox" name="consistent" value="consistent">
+            <label for="consistent">Consistency</label><br>
+            <input type="checkbox" id="chkBox" name="efficient" value="efficient">
+            <label for="efficient">Efficiency</label><br>
+            <input type="checkbox" id="chkBox" name="usability" value="usability">
+            <label for="usability">Usability</label><br>
+            <input type="checkbox" id="chkBox" name="reliability" value="reliability">
+            <label for="reliability">Reliability</label><br>
+            <input type="checkbox" id="chkBox" name="SecAndData" value="SecAndData">
+            <label for="SecAndData">Security and Data Integrity</label><br>
+        </div>
+        <br>
+        <br>
+        <!-- Question 4 -->
+        <div class="question">
+            <h3>4. Please select the worst feature about the website.</h3>
+            <select name="worst"> 
+                <option value="color">Color</option>
+                <option value="layout">Layout</option>
+                <option value="picture">Choice of Pictures</option>
+                <option value="font">Text Font</option>
+            </select>
+        </div>
+        <br>
+        <br>
+        <!-- Question 5 -->
+        <div class="question">
+            <h3>5. Please select the best feature about the website.</h3>
+            <select name="best"> 
+                <option value="color">Color</option>
+                <option value="layout">Layout</option>
+                <option value="picture">Choice of Pictures</option>
+                <option value="font">Text Font</option>
+            </select>
+        </div>
+        <br>
+        <br>
+        <!-- Question 6 -->
+        <div class="question">
+            <h3>6. Please provide any comments you would like to add.</h3>
+            <textarea rows="6" cols="60"></textarea>
+        </div>
+        <br>
+        <input type="button" class="button" value="Submit">
+    </form>
+    <footer>
+        <p>Website designed by Michael</p>
+    </footer>
+</body>
+</html>

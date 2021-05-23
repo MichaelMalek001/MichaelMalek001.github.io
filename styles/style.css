@@ -1,0 +1,53 @@
+body {
+    background-image: linear-gradient(to left, rgba(44,53,57,0), rgba(44,53,57,1));
+}
+h1 {
+    border-style: solid;
+    text-align: center;
+    color: whitesmoke;
+    border-radius: 50px;
+}
+
+h2{
+    text-align: center;
+    color: whitesmoke;
+}
+
+.question {
+    margin: auto;
+    color: whitesmoke;
+    border-style: solid;
+    padding: 50px 50px 50px 50px;
+    margin-right: 400px;
+    margin-left: 400px;
+    border-radius: 50px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  label, option {
+      font-family: "Lucida Console", "Courier New", monospace;
+  }
+
+  .button {
+      background-color: white;
+      color: black;
+      font-size: 35px;
+      cursor: pointer;
+      padding-left: 50px;
+      padding-right: 50px;
+      margin: auto;
+      display: block;
+  }
+
+  .button:hover {background-color: black;color: white}
+
+  footer {
+      color: whitesmoke;
+      text-align: center;
+      font-style: italic;
+  }
