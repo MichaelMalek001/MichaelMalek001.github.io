@@ -5,21 +5,73 @@
 var products = [
 	{
 		name: "brocoli",
-		vegetarian: true,
-		glutenFree: true,
+		lactose: false,
+		nuts: false,
+		organic: true,
 		price: 1.99
 	},
 	{
 		name: "bread",
-		vegetarian: true,
-		glutenFree: false,
+		lactose: true,
+		nuts: false,
+		organic: false,
 		price: 2.35
 	},
 	{
 		name: "salmon",
-		vegetarian: false,
-		glutenFree: true,
+		lactose: false,
+		nuts: false,
+		organic: false,
 		price: 10.00
+	},
+	{
+		name: "feta cheese",
+		lactose: true,
+		nuts: false,
+		organic: true,
+		price: 5.99
+	},
+	{
+		name: "chicken",
+		lactose: false,
+		nuts: false,
+		organic: true,
+		price: 7.99
+	},
+	{
+		name: "almonds",
+		lactose: false,
+		nuts: true,
+		organic: true,
+		price: 4.99
+	},
+	{
+		name: "pistachios",
+		lactose: false,
+		nuts: true,
+		organic: false,
+		price: 5.49
+	},
+	{
+		name: "apple",
+		lactose: false,
+		nuts: false,
+		organic: true,
+		price: 0.99
+	},
+	{
+		name: "milk",
+		lactose: true,
+		nuts: false,
+		organic: false,
+		price: 3.99
+	},
+	{
+		name: "grapes",
+		lactose: false,
+		nuts: false,
+		organic: false,
+		price: 2.99
 	}
 ];
 	
@@ -29,19 +81,46 @@ var products = [
 // prices should be included in this list, as well as a sort based on price
 
 function restrictListProducts(prods, restriction) {
-	let product_names = [];
-	for (let i=0; i<prods.length; i+=1) {
-		if ((restriction == "Vegetarian") && (prods[i].vegetarian == true)){
-			product_names.push(prods[i].name);
-		}
-		else if ((restriction == "GlutenFree") && (prods[i].glutenFree == true)){
-			product_names.push(prods[i].name);
-		}
-		else if (restriction == "None"){
-			product_names.push(prods[i].name);
+	let productList = [];
+	var onlyOrganic = document.getElementById("OrganicChkBox").checked;
+	if(onlyOrganic){
+		// User wants only organic foods
+		for (let i=0; i<prods.length; i+=1) {
+			if ((restriction == "LactoseNutsFree") && (prods[i].nuts == false) && (prods[i].lactose == false) && (prods[i].organic == true)){
+				productList.push(prods[i]);
+			}
+			else if ((restriction == "NutsFree") && (prods[i].nuts == false) && (prods[i].organic == true)){
+				productList.push(prods[i]);
+			}
+			else if ((restriction == "LactoseFree") && (prods[i].lactose == false) && (prods[i].organic == true)){
+				productList.push(prods[i]);
+			}
+			else if ((restriction == "None") && (prods[i].organic == true)){
+				productList.push(prods[i]);
+			}
 		}
 	}
-	return product_names;
+	else{
+		// User does not care if foods are organic or not
+		for (let i=0; i<prods.length; i+=1) {
+			if ((restriction == "LactoseNutsFree") && (prods[i].nuts == false) && (prods[i].lactose == false)){
+				productList.push(prods[i]);
+			}
+			else if ((restriction == "NutsFree") && (prods[i].nuts == false)){
+				productList.push(prods[i]);
+			}
+			else if ((restriction == "LactoseFree") && (prods[i].lactose == false)){
+				productList.push(prods[i]);
+			}
+			else if ((restriction == "None")){
+				productList.push(prods[i]);
+			}
+		}
+	}
+
+	// Sort based on price of the items in the array
+	productList.sort(function(a, b){return a.price - b.price});
+	return productList;
 }
 
 // Calculate the total price of items, with received parameter being a list of products
@@ -52,5 +131,6 @@ function getTotalPrice(chosenProducts) {
 			totalPrice += products[i].price;
 		}
 	}
+	totalPrice = totalPrice.toFixed(2); 
 	return totalPrice;
 }

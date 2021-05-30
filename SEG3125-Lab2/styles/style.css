@@ -1,3 +1,42 @@
+body {
+  background-image: linear-gradient(to left, rgba(44, 238, 44, 0), rgba(44, 238, 44, 1));
+}
+
+h1 {
+  border-style: solid;
+  text-align: center;
+  color: whitesmoke;
+  border-radius: 50px;
+  background-color: rgb(16, 180, 16);
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  color: whitesmoke;
+  text-align: left;
+  font-style: italic;
+}
+
+h3 {
+  font-size: 50px;
+}
+
+p {
+  font-size: 40px;
+}
+
+#organicLabel {
+  font-size: 30px;
+}
+
+#displayCart {
+  font-size: 30px;
+}
 /* This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp> */
 
 /* Style the tab */
@@ -34,4 +73,5 @@
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+  background-color: whitesmoke;
 }
