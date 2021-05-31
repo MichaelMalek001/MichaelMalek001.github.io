@@ -38,13 +38,18 @@ p {
 #displayCart {
   font-size: 25px;
 }
+
+.tablinks {
+  color: white;
+}
 /* This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp> */
 
 /* Style the tab */
 .tab {
   overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  border: 3px solid white;
+  background-color: rgb(16, 180, 16);
+  border-radius: 50px;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -56,11 +61,13 @@ p {
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #ddd;
+  background-color: lightgreen;
 }
 
 /* Create an active/current tablink class */
