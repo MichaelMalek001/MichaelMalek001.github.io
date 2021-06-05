@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SEG3125 Lab2</title>
+  <title>Fuego</title>
 	<! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp>
 	<link href="styles/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 <h1>Fuego Grocery Store</h1>
-<img src="images/groceryStore.jpg" alt="Grocery Store" width="600" height="300">
-<!-- Tab links, each one with an onclick event associated with it -->
-<div class="tab">
-  <button class="tablinks" onclick="openInfo(event, 'Client')">Client</button>
-  <button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
-  <button class="tablinks" onclick="openInfo(event, 'Cart')">Cart</button>
-</div>
+<img src="images/Logo.jpg" alt="Grocery Store" width="350" height="200" id="logoImg">
+<br>
 
-<!-- Tab content -->
-<div id="Client" class="tabcontent">
+<button class="accordion">About You ></button>
+<div class="panel">
   <h3>Client Information</h3>
   <p>Tell us a bit about you.</p>
-	<p>Choose a Category:</p>
-	<select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
-	<option value=""></option>
-	<option value="LactoseFree">No Lactose</option>
-    <option value="NutsFree">No Nuts</option>
-    <option value="LactoseNutsFree">No Lactose and No Nuts</option>
-    <option value="None">None</option>
-	</select>
+	<p>Select all applicable filters.</p>
+  <input type="checkbox" id="lactoseChkBox" name="noLactose" value="Lactose">
+  <label id="lactoseLabel" for="noLactose">Lactose Free</label><br>
+  <input type="checkbox" id="nutsChkBox" name="noNuts" value="Nuts">
+  <label id="nutsLabel" for="ProperFunc">Nuts Free</label><br>
+  <input type="checkbox" id="OrganicChkBox" name="Organic" value="Organic">
+  <label id="organicLabel" for="Organic">Organic only</label><br><br><br>
+  <button id="filterBtn" onclick="populateListProductChoices('dietSelect', 'displayProduct')">Submit</button>
   <br>
   <br>
   <br>
-  <label id="organicLabel" for="Organic">Please check the following box if you would like organic food only.</label>
-  <input type="checkbox" id="OrganicChkBox" name="Organic" value="Organic" onchange="populateListProductChoices('dietSelect', 'displayProduct')">
 </div>
 
-<div id="Products" class="tabcontent">
+<button class="accordion">Products ></button>
+<div class="panel">
   <h3>Your targeted products</h3>
   <p>We preselected products based on your restrictions.</p>
 	 <p>Choose items to buy:</p>
@@ -44,16 +38,23 @@
 	 <button id="addCart" type="button" class="block" onclick="selectedItems()">
 		Add selected items to cart.
 	</button>
+  <br>
+  <br>
+  <br>
 </div>
 
-<div id="Cart" class="tabcontent">
+<button class="accordion">Cart ></button>
+<div class="panel">
   <h3>Cart</h3>
   <p>Here is your cart.</p>
   <div id="displayCart"></div>
+  <br>
+  <br>
+  <br>
 </div>
 
 <footer>
-  <p>Website designed by Michael</p>
+  <p id="myFooter">Website designed by Michael</p>
 </footer>
 <script src="scripts/groceries.js"></script>
 <script src="scripts/main.js"></script>

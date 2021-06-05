@@ -4,7 +4,7 @@
 
 var products = [
 	{
-		name: "brocoli",
+		name: "broccoli",
 		lactose: false,
 		nuts: false,
 		organic: true,
@@ -80,9 +80,25 @@ var products = [
 // given restrictions provided, make a reduced list of products
 // prices should be included in this list, as well as a sort based on price
 
-function restrictListProducts(prods, restriction) {
+function restrictListProducts(prods) {
 	let productList = [];
 	var onlyOrganic = document.getElementById("OrganicChkBox").checked;
+	var noLactose = document.getElementById("lactoseChkBox").checked;
+	var noNuts = document.getElementById("nutsChkBox").checked;
+	var restriction = "";
+	if (noLactose && noNuts){
+		restriction = "LactoseNutsFree";
+	}
+	else if (noNuts && !noLactose) {
+		restriction = "NutsFree";
+	}
+	else if (noLactose && !noNuts){
+		restriction = "LactoseFree";
+	}
+	else if (!noLactose && !noNuts){
+		restriction = "None";
+	}
+
 	if(onlyOrganic){
 		// User wants only organic foods
 		for (let i=0; i<prods.length; i+=1) {
@@ -127,7 +143,7 @@ function restrictListProducts(prods, restriction) {
 function getTotalPrice(chosenProducts) {
 	totalPrice = 0;
 	for (let i=0; i<products.length; i+=1) {
-		if (chosenProducts.indexOf(products[i].name) > -1){
+		if (chosenProducts.indexOf(products[i].name + " " + products[i].price + "$") > -1){
 			totalPrice += products[i].price;
 		}
 	}
