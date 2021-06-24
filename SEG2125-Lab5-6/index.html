@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/excite-bike/jquery-ui.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- Your own script -->
+    <script src="scripts/script.js"></script>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <title>Fuego</title>
+</head>
+<body>
+    <div class="container bg-dark text-white my-3 p-3" id="banner">
+        <h1 class="display-1"><img id="img_logo" src="images/logo.png" width="150" height="150">Fuego Physiotherapy</h1><br>
+    </div>
+    <div class="container border p-3 my-3">
+        <h2 class="display-3">About us</h4>
+        <p>We are located at 2121 Walton street in Los Angeles, California.</p>
+    </div>
+
+    <!--I used the following websites to get examples for physiotherapy services
+    https://rxphysiohealth.com/services/physiotherapy/
+    https://andersoncollege.com/common-physiotherapy-treatments/-->
+
+    <div class="container border bg-dark text-white">
+        <h2 class="display-3">Our Services</h2>
+        <table class="table table-hover table-light">
+            <thead>
+              <tr>
+                <th scope="col">Service</th>
+                <th scope="col">Purpose</th>
+                <th scope="col">Price (per session)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Soft Tissue Mobilization</td>
+                <td>Also referred to as therapeutic massage, soft tissue mobilization can help relax a patient’s muscles and reduce swelling in certain areas, 
+                    making this treatment excellent for relieving pain associated with athletic injuries.</td>
+                <td>100$</td>
+              </tr>
+              <tr>
+                <td>Acupuncture and Dry Needling</td>
+                <td>Modulate pain and reduce inflammation.</td>
+                <td>90$</td>
+              </tr>
+              <tr>
+                <td>Postural Retraining</td>
+                <td>Reduce chronic pain related to postural dysfunction.</td>
+                <td>120$</td>
+              </tr>
+              <tr>
+                  <td>Exercise Therapy</td>
+                  <td>Focalized strength and conditioning principles to achieve both rehabilitative and performance goals.</td>
+                  <td>80$</td>
+              </tr>
+              <tr>
+                  <td>Gait, Balance and Co-Ordination Training</td>
+                  <td>Reduce the risk of falls and optimize daily living.</td>
+                  <td>150$</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="container">
+        <h2 class="display-3">Our Experts</h2>
+        <div class="row justify-content-around">
+            <div class="card" style="width: 18rem;">
+                <img src="images/doctor1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Meet <b>Dalila</b>, our most experienced physiotherapist who has been treating patients for 25 years!</p>
+                    <p><b>Availability</b>: monday, wednesday, friday</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="images/doctor2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Meet <b>James</b>, our new physiotherapist who loves to help patients reach their goals.</p>
+                    <p><b>Availability</b>: weekdays only</p>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="images/doctor3.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Meet <b>John</b>, our youngest phyhsiotherapist who is currently completing his resudencey here at Fuego Physiotherapy!</p>
+                    <p><b>Availability</b>: weekends only</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container border bg-dark text-white">
+        <h2 class="display-3">Book an appointment!</h2>
+        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Click here to book an appointment!
+        </button>
+    
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header" id="myModalHeader">
+                        <h5 class="modal-title" id="exampleModalLabel">Booking Form</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="myModal">
+                        <div class="mb-3">
+                            <label for="selectedService" class="form-label">Service</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option value="1">Soft Tissue Mobilization - 100$</option>
+                                <option value="2">Acupuncture and Dry Needling - 90$</option>
+                                <option value="3">Postural Retraining - 120$</option>
+                                <option value="4">Exercise Therapy - 80$</option>
+                                <option value="5">Gait, Balance and Co-Ordination Training - 150$</option>
+                              </select>
+                        </div>
+                        <p>Date: <input type="text" id="dateInput"></p>
+                        <br>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">First Name</span>
+                            <input type="text" class="form-control" aria-label="First Name" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Last Name</span>
+                            <input type="text" class="form-control" aria-label="Last Name" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Email Address</span>
+                            <input type="text" class="form-control" aria-label="Email Address" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Phone Number</span>
+                            <input type="text" class="form-control" aria-label="Phone Number" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+    <br>
+    <br>
+    <br>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>
