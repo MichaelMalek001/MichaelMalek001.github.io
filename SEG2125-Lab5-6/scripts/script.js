@@ -1,22 +1,32 @@
 const setDateFormat = "mm/dd/yy";
-var unavailableDates = ["06/29/2021","07/07/2021","07/10/2021"];
+var unavailableDates = ["01/29/2021"];
 function disableDates(date) {
-    // Sunday is Day 0, disable all Sundays
-    if (date.getDay() === 0)
+    // Sunday is Day 0 and Saturday is Day 1, disable all Sundays and Saturdays
+    if (date.getDay() === 0 || date.getDay() == 6)
         return [false];
+    var choice = document.getElementById("selectedDoc").value;
+    if (choice == "1"){
+        if (date.getDay() == 2 || date.getDay() == 3 || date.getDay() == 4){
+            return [false];
+        }
+    }
+    else if (choice == "2"){
+        if (date.getDay() == 1 || date.getDay() == 3 || date.getDay() == 5){
+            return [false];
+        }
+    }
+    else{
+        if (date.getDay() == 1 || date.getDay() == 2 || date.getDay() == 4 || date.getDay() == 5){
+            return [false];
+        }
+    }
     var string = jQuery.datepicker.formatDate(setDateFormat, date);
     return [ unavailableDates.indexOf(string) === -1 ]
 }
 
 $(document).ready(function(){
 
-    // To change the style of the calender, look in jqueryui.com, under Themes, in the ThemeRoller Gallery
-    // You can try different themes (the names are under the calendars) / This is Excite Bike
-    // To use a different theme you must include its css in your HTML file.
-    // The one I included in my HTML is the Excite Bike, but you can try others
-
-    // Also, here is a good tutorial for playing with the datepicker in https://webkul.com/blog/jquery-datepicker/
-    // Datepicker is also documented as one of the widgets here: https://api.jqueryui.com/category/widgets/
+    
     $( "#dateInput" ).datepicker(
         {
             dateFormat: setDateFormat,

@@ -12,10 +12,32 @@
     <title>Fuego</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">Fuego Physiotherapy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#aboutUs">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#ourServices">Our Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#ourExperts">Our Experts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#bookApp">Book an Appointment</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="container bg-dark text-white my-3 p-3" id="banner">
         <h1 class="display-1"><img id="img_logo" src="images/logo.png" width="150" height="150">Fuego Physiotherapy</h1><br>
     </div>
-    <div class="container border p-3 my-3">
+    <div class="container border p-3 my-3" id="aboutUs">
         <h2 class="display-3">About us</h4>
         <p>We are located at 2121 Walton street in Los Angeles, California.</p>
     </div>
@@ -24,7 +46,7 @@
     https://rxphysiohealth.com/services/physiotherapy/
     https://andersoncollege.com/common-physiotherapy-treatments/-->
 
-    <div class="container border bg-dark text-white">
+    <div class="container border bg-dark text-white" id="ourServices">
         <h2 class="display-3">Our Services</h2>
         <table class="table table-hover table-light">
             <thead>
@@ -64,35 +86,35 @@
             </tbody>
           </table>
     </div>
-    <div class="container">
+    <div class="container" id="ourExperts">
         <h2 class="display-3">Our Experts</h2>
         <div class="row justify-content-around">
             <div class="card" style="width: 18rem;">
                 <img src="images/doctor1.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-text">Meet <b>Dalila</b>, our most experienced physiotherapist who has been treating patients for 25 years!</p>
-                    <p><b>Availability</b>: monday, wednesday, friday</p>
+                    <p><b>Availability</b>: mondays and fridays</p>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
                 <img src="images/doctor2.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-text">Meet <b>James</b>, our new physiotherapist who loves to help patients reach their goals.</p>
-                    <p><b>Availability</b>: weekdays only</p>
+                    <p><b>Availability</b>: tuesdays and thursdays</p>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
                 <img src="images/doctor3.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-text">Meet <b>John</b>, our youngest phyhsiotherapist who is currently completing his resudencey here at Fuego Physiotherapy!</p>
-                    <p><b>Availability</b>: weekends only</p>
+                    <p><b>Availability</b>: wednesdays only</p>
                 </div>
             </div>
         </div>
     </div>
     <br>
-    <div class="container border bg-dark text-white">
-        <h2 class="display-3">Book an appointment!</h2>
+    <div class="container border bg-dark text-white" id="bookApp">
+        <h2 class="display-3">Book an appointment now!</h2>
         <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Click here to book an appointment!
         </button>
@@ -107,13 +129,21 @@
                     </div>
                     <div class="modal-body" id="myModal">
                         <div class="mb-3">
-                            <label for="selectedService" class="form-label">Service</label>
+                            <label for="selectedService" class="form-label">Choose a service</label>
                             <select class="form-select" aria-label="Default select example">
                                 <option value="1">Soft Tissue Mobilization - 100$</option>
                                 <option value="2">Acupuncture and Dry Needling - 90$</option>
                                 <option value="3">Postural Retraining - 120$</option>
                                 <option value="4">Exercise Therapy - 80$</option>
                                 <option value="5">Gait, Balance and Co-Ordination Training - 150$</option>
+                              </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="selectedDoctor" class="form-label">Chose a Phyhsiotherapist</label>
+                            <select class="form-select" id="selectedDoc" aria-label="Default select example">
+                                <option value="1">Dalia</option>
+                                <option value="2">James</option>
+                                <option value="3">John</option>
                               </select>
                         </div>
                         <p>Date: <input type="text" id="dateInput"></p>
