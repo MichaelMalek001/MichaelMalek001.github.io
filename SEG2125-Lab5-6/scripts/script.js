@@ -86,7 +86,7 @@ $(document).ready(function(){
     // validate given phone number
     $("#givenPhone").on("change", function(){
         if (!validatePhone("givenPhone")){
-            alert("Wrong phone number format. Format should be (xxx)-xxx-xxxx");
+            alert("Wrong phone number format. Format should be (xxx)-xxx-xxxx where x is a digit from 0-9");
             $("#givenPhone").val("(xxx)-xxx-xxxx");
             $("#givenPhone").addClass("error");
         }
@@ -98,7 +98,7 @@ $(document).ready(function(){
     // validate given credit card
     $("#credit").on("change", function(){
         if (!validateCredit("credit")){
-            alert("Wrong credit card format. Format should be xxxx-xxxx-xxxx-xxxx");
+            alert("Wrong credit card format. Format should be xxxx-xxxx-xxxx-xxxx where x is a digit from 0-9");
             $("#credit").val("xxxx-xxxx-xxxx-xxxx");
             $("#credit").addClass("error");
         }
@@ -116,10 +116,28 @@ $(document).ready(function(){
             errorMessage += "You must select a date.";
         }
         if (!onlyLetters("firstName")){
-            errorMessage += "\n You must give a first name containig letters only.";
+            errorMessage += "\nYou must give a first name containig letters only.";
             valid = false;
         }
+        if (!onlyLetters("lastName")){
+            errorMessage += "\nYou must give a last name containig letters only.";
+            valid = false;
+        }
+        if (!validatePhone("givenPhone")){
+            errorMessage += "\nWrong phone number format. Format should be (xxx)-xxx-xxxx where x is a digit from 0-9";
+            valid = false;
+            $("#givenPhone").val("(xxx)-xxx-xxxx");
+        }
+
+        if (!validateCredit("credit")){
+            errorMessage += "\nWrong credit card format. Format should be xxxx-xxxx-xxxx-xxxx where x is a digit from 0-9";
+            valid = false;
+            $("#credit").val("xxxx-xxxx-xxxx-xxxx");
+        }
+
         if(valid){
+            var ccNum = document.getElementById("credit").value;
+            var pNum = document.getElementById("givenPhone").value;
             var firstName = document.getElementById("firstName").value;
             var goodDate = document.getElementById("dateInput").value;
             var chosenServiceNum = document.getElementById("serviceChoice").value;
@@ -151,8 +169,8 @@ $(document).ready(function(){
             else if (chosenDocNum == 3) {
                 goodDoc = "John";
             }
-
-            alert(firstName + ", you have a booked an appointment on " + goodDate + ". The service you selected is " + chosenService + ". Your physiotherapist will be " + goodDoc + ".");
+            $('#exampleModal').modal('hide');
+            alert(firstName + ", you have a booked an appointment on " + goodDate + ". The service you selected is " + chosenService + ". Your physiotherapist will be " + goodDoc + ". If we need to contact you, we will call " + pNum + ". Card " + ccNum + " will be charged.");
         }
         else {
             alert(errorMessage);
