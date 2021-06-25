@@ -24,9 +24,46 @@ function disableDates(date) {
     return [ unavailableDates.indexOf(string) === -1 ]
 }
 
+// function to validate a phone number
+function validatePhone(txtPhone) {
+    var a = document.getElementById(txtPhone).value;
+    var filter = /^[(]\d\d\d[)]-\d\d\d-\d\d\d\d$/;
+    if (filter.test(a)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+// function to validate a credit card
+function validateCredit(credit) {
+    var a = document.getElementById(credit).value;
+    var filter = /^\d\d\d\d-\d\d\d\d-\d\d\d\d-\d\d\d\d$/;
+    if (filter.test(a)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+// function to validate first name and last name
+function onlyLetters(name) {
+    var a = document.getElementById(name).value;
+    var filter = /^[A-Za-z]+$/;
+    if (filter.test(a)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 $(document).ready(function(){
 
     
+    // Set the correct available dates corresponding to the expert chosen.
     $( "#dateInput" ).datepicker(
         {
             dateFormat: setDateFormat,
@@ -39,4 +76,87 @@ $(document).ready(function(){
         }
     );
 
+    // Jquery tool tip
+    $(document).tooltip({
+        classes: {
+            "ui-tooltip": "highlight"
+        }
+    });
+
+    // validate given phone number
+    $("#givenPhone").on("change", function(){
+        if (!validatePhone("givenPhone")){
+            alert("Wrong phone number format. Format should be (xxx)-xxx-xxxx");
+            $("#givenPhone").val("(xxx)-xxx-xxxx");
+            $("#givenPhone").addClass("error");
+        }
+        else {
+            $("#givenPhone").removeClass("error");
+        }
+    });
+
+    // validate given credit card
+    $("#credit").on("change", function(){
+        if (!validateCredit("credit")){
+            alert("Wrong credit card format. Format should be xxxx-xxxx-xxxx-xxxx");
+            $("#credit").val("xxxx-xxxx-xxxx-xxxx");
+            $("#credit").addClass("error");
+        }
+        else {
+            $("#credit").removeClass("error");
+        }
+    });
+
+    $("#btnSubmit").click(function() {
+        var valid = true;
+        var selectedDate = document.getElementById("dateInput").value;
+        var errorMessage = "";
+        if (selectedDate == ""){
+            valid = false;
+            errorMessage += "You must select a date.";
+        }
+        if (!onlyLetters("firstName")){
+            errorMessage += "\n You must give a first name containig letters only.";
+            valid = false;
+        }
+        if(valid){
+            var firstName = document.getElementById("firstName").value;
+            var goodDate = document.getElementById("dateInput").value;
+            var chosenServiceNum = document.getElementById("serviceChoice").value;
+            var chosenService;
+            if (chosenServiceNum == 1) {
+                chosenService = "Soft Tissue Mobilization - 100$";
+            }
+            else if (chosenServiceNum == 2) {
+                chosenService = "Acupuncture and Dry Needling - 90$";
+            }
+            else if (chosenServiceNum == 3) {
+                chosenService = "Postural Retraining - 120$";
+            }
+            else if (chosenServiceNum == 4) {
+                chosenService = "Exercise Therapy - 80$";
+            }
+            else if (chosenServiceNum == 5) {
+                chosenService = "Gait, Balance and Co-Ordination Training - 150$";
+            }
+
+            var chosenDocNum = document.getElementById("selectedDoc").value;
+            var goodDoc;
+            if (chosenDocNum == 1) {
+                goodDoc = "Dalila";
+            }
+            else if (chosenDocNum == 2) {
+                goodDoc = "James";
+            }
+            else if (chosenDocNum == 3) {
+                goodDoc = "John";
+            }
+
+            alert(firstName + ", you have a booked an appointment on " + goodDate + ". The service you selected is " + chosenService + ". Your physiotherapist will be " + goodDoc + ".");
+        }
+        else {
+            alert(errorMessage);
+        }
+
+      });
 });
