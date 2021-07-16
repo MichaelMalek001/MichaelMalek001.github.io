@@ -12,15 +12,32 @@ import trainer3 from './trainer3.jpg';
 import trainer4 from './trainer4.jpg';
 import Modal from 'react-bootstrap/Modal';
 import React from 'react';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import TimePicker from 'react-time-picker';
+import MyNavbar from './MyNavbar'
 
 const PersonalTraining = (props) => {
     const [modalShow, setModalShow] = React.useState(false);
+    const [startDate, setStartDate] = React.useState(new Date());
+    const [value, onChange] = React.useState('10:00');
+
+    const [firstName, setFirstName] = React.useState('');
+    const [lastName, setLastName] = React.useState('');
 
     const onHide = () => {
         setModalShow(false);
     }
+    
+
+    const trySubmit = (e) => {
+        console.log(firstName);
+        console.log(lastName);
+    }
+
     return ( 
         <div className="PersonalTPage">
+            <MyNavbar/>
             <div className="container my-3 p-3" id="banner">
             <h1 className="display-3" style={{textAlign: "center"}}>Hire a personal trainer to help you reach your goals!</h1>
             <br/>
@@ -37,11 +54,35 @@ const PersonalTraining = (props) => {
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-
+                        <form>
+                            <label>First Name: </label>
+                            <input type="text" value={firstName} onChange={(e) => {setFirstName(e.target.value)}}></input>
+                            <br/>
+                            <br/>
+                            <label>Last Name: </label>
+                            <input type="text" value={lastName} onChange={(e) => {setLastName(e.target.value)}}></input>
+                            <br/>
+                            <br/>
+                            <label for="cars">Select a Personal Trainer: </label>
+                            <select name="trainers" id="trainers">
+                                <option value="john">John</option>
+                                <option value="alissa">Alissa</option>
+                                <option value="jacob">Jacob</option>
+                                <option value="felicia">Felicia</option>
+                            </select>
+                            <br/>
+                            <br/>
+                            <label>Select a date: </label>
+                            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)}/>
+                            <br/>
+                            <br/>
+                            <label>Select a time:</label>
+                            <TimePicker onChange={onChange} value={value}/>
+                        </form>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={onHide}>Close</Button>
-                        <Button variant="primary">Submit</Button>
+                        <Button variant="primary" onClick={trySubmit}>Submit</Button>
                     </Modal.Footer>
                 </Modal>
             </div>

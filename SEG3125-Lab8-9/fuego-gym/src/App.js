@@ -13,7 +13,6 @@ const likes = 50;
   return ( 
     <Router>
       <div className="App">
-        <MyNavbar />
         <div className="content">
           <Switch>
             <Route exact path="/"> 
