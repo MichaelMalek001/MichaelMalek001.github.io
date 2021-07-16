@@ -12,12 +12,12 @@ const MyNavbar = () => {
     return ( 
         <Navbar bg="primary" variant="dark">
             <Container>
-                <Navbar.Brand href="#">Fuego Gym</Navbar.Brand>
+                <Navbar.Brand href="/">Fuego Gym</Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link href="#home">Personal Training</Nav.Link>
-                    <Nav.Link href="#features">Features</Nav.Link>
-                    <Nav.Link href="#pricing">Pricing</Nav.Link>
-                    <NavDropdown title="Dropdown" id="nav-dropdown">
+                    <Nav.Link href="/personal">Personal Training</Nav.Link>
+                    <Nav.Link href="/group">Group Classes</Nav.Link>
+                    <Nav.Link href="/memberships">Memberships</Nav.Link>
+                    <NavDropdown title="Language" id="nav-dropdown">
                     <NavDropdown.Item eventKey="4.1">English</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item eventKey="4.2">French</NavDropdown.Item>
